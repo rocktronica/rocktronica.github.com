@@ -1,0 +1,115 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="ie8 oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>rocktronica.github.com</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+
+	<noscript>
+		<h2>No JavaScript?</h2>
+		<p>That's okay. Go here: <a href="https://github.com/rocktronica">https://github.com/rocktronica</a></p>
+	</noscript>
+	
+	<script id="scrTemplate" type="text/html">
+		{{#profile}}
+			<header>
+				<aside>
+					<a href="{{html_url}}" title="{{name}}" class="boximage"><img src="{{avatar_url}}" alt="{{name}}" /></a>
+				</aside>
+				<div>
+					<h1>{{name}}</h1>
+					<p>
+						<a href="{{html_url}}">{{html_url}}</a>
+						<a href="{{blog}}">{{blog}}</a>
+					</p>
+					<p>{{bio}}</p>
+				</div>
+			</header>
+		{{/profile}}
+		<section>
+			<h2>Repos</h2>
+			<table class="repos" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Created</th>
+						<th>Watchers</th>
+						<th>Forks</th>
+						<th>Language</th>
+					</tr>
+				</thead>
+			{{#repos}}
+				<tbody class="repo">
+					<tr>
+						<th class="name"><h3><a href="{{html_url}}">{{name}}</a></h3></th>
+						<td class="created">{{created_at}}</td>
+						<td class="watchers">{{watchers}}</td>
+						<td class="forks">{{forks}}</td>
+						<td class="language">{{language}}</td>
+					</tr>
+					<tr>
+						<td class="description" colspan="5">
+							<small>{{description}}</small>
+						</td>
+					</tr>
+				</tbody>
+			{{/repos}}
+			</table>
+		</section>
+		<section>
+			<h2>Followers</h2>
+			<ul class="gallery">
+			{{#followers}}
+				<li>
+					<a href="{{url}}" title="{{login}}" class="boximage"><img src="{{avatar_url}}" alt="{{login}}" /></a>
+				</li>
+			{{/followers}}
+			</ul>
+		</section>
+		<section>
+			<h2>Following</h2>
+			<ul class="gallery">
+			{{#following}}
+				<li>
+					<a href="{{url}}" title="{{login}}" class="boximage"><img src="{{avatar_url}}" alt="{{login}}" /></a>
+				</li>
+			{{/following}}
+			</ul>
+		</section>
+		<section>
+			<h2>Watching</h2>
+			<table class="watching" cellpadding="0" cellspacing="0">
+				{{#watching}}
+					<tr>
+						<td class="name"><a href="{{html_url}}">{{name}}</a></td>
+						<td class="language"><small>{{language}}</small></td>
+						<td class="description">{{description}}</td>
+					</tr>
+				{{/watching}}
+			</table>
+		</section>
+	</script>	
+	
+	<div id="container">
+		<p>Loading...</p>
+	</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script src="plugins.js"></script>
+	<script defer src="/javascript.js"></script>
+	<!--[if lt IE 7 ]>
+		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+		<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->
+	
+</body>
+</html>
