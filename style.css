@@ -34,6 +34,11 @@ table * { vertical-align: top; }
 
 small { font-size: 12px; color: #ddd; }
 
+.homepage a {
+	color: #DD7D45;
+	margin-left: 10px;
+}
+
 /* --- special sauce --- */
 
 .gallery {
