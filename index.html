@@ -20,17 +20,24 @@
 	<script id="scrTemplate" type="text/html">
 		{{#profile}}
 			<header>
-				<aside>
-					<a href="{{html_url}}" title="{{name}}" class="boximage"><img src="{{avatar_url}}" alt="{{name}}" /></a>
-				</aside>
+				<a href="{{html_url}}" title="{{name}}" class="boximage">
+					<img src="{{avatar_url}}" alt="{{name}}" width="80" height="80" />
+				</a>
 				<div>
-					<h1>{{name}}</h1>
+					<h1>
+						{{name}}
+						<small><a href="{{html_url}}">{{login}}</a></small>
+					</h1>
 					<p>
 						<a href="{{html_url}}">{{html_url}}</a>
 						<a href="{{blog}}">{{blog}}</a>
 					</p>
 					<p>{{bio}}</p>
 				</div>
+				<aside class="buttons">
+					{{#email}}<a href="{{html_url}}">Message</a>{{/email}}
+					<a href="{{html_url}}">Follow</a>
+				</aside>
 			</header>
 		{{/profile}}
 		<section>
@@ -58,7 +65,7 @@
 						<td class="description" colspan="5">
 							<small>{{description}}</small>
 							{{#homepage}}
-								<small class="homepage"><a href="{{{homepage}}}">{{homepage}}</a></small>
+								<small class="url"><a href="{{{homepage}}}">{{homepage}}</a></small>
 							{{/homepage}}
 						</td>
 					</tr>
@@ -71,7 +78,7 @@
 			<ul class="gallery">
 			{{#followers}}
 				<li>
-					<a href="http://github.com/{{login}}" title="{{login}}" class="boximage"><img src="{{avatar_url}}" alt="{{login}}" /></a>
+					<a href="http://github.com/{{login}}" title="{{login}}" class="boximage"><img src="{{avatar_url}}" alt="{{login}}" width="80" height="80" /></a>
 				</li>
 			{{/followers}}
 			</ul>
@@ -81,7 +88,7 @@
 			<ul class="gallery">
 			{{#following}}
 				<li>
-					<a href="http://github.com/{{login}}" title="{{login}}" class="boximage"><img src="{{avatar_url}}" alt="{{login}}" /></a>
+					<a href="http://github.com/{{login}}" title="{{login}}" class="boximage"><img src="{{avatar_url}}" alt="{{login}}" width="80" height="80" /></a>
 				</li>
 			{{/following}}
 			</ul>
@@ -98,7 +105,37 @@
 				{{/watching}}
 			</table>
 		</section>
-	</script>	
+		<section>
+			<h2>Gists</h2>
+			<table class="gists" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Created</th>
+						<th>Language</th>
+					</tr>
+				</thead>
+				{{#gists}}
+					<tbody class="gist">
+						<tr>
+							<th class="name"><a href="{{html_url}}">{{name}}</a></h3></th>
+							<td class="created">{{created_at}}</td>
+							<td class="language">{{language}}</td>
+						</tr>
+						<tr>
+							<td class="description" colspan="3">
+								<small>{{description}}</small>
+								<small class="url"><a href="{{{html_url}}}">{{html_url}}</a></small>
+							</td>
+						</tr>
+					</tbody>
+				{{/gists}}
+			</table>
+		</section>
+		<footer>
+			<p><a href="https://github.com/rocktronica/rocktronica.github.com">Fork Me on GitHub</a>. Tinker tinker.</p>
+		</footer>
+	</script>
 	
 	<div id="container">
 		<p>Loading...</p>

@@ -2,6 +2,8 @@
 
 * { margin:0; padding:0; font-size:inherit; }
 
+html { margin: 0 20px; }
+
 body {
 	background: #222;
 	margin: 40px auto;
@@ -9,7 +11,7 @@ body {
 	line-height: 20px;
 	color: #fff;
 	font-size: 15px;
-	max-width: 900px;
+	max-width: 944px;
 }
 
 header,section,article,h1,h2,h3,p,table,ul { margin: 0 0 22px; }
@@ -32,9 +34,10 @@ th,h3 { font-size: 18px; }
 table { width: 100%; }
 table * { vertical-align: top; }
 
-small { font-size: 12px; color: #ddd; }
+small, footer { font-size: 12px; color: #ddd; }
+footer { text-align: right; }
 
-.homepage a {
+.url a, h1 small a {
 	color: #DD7D45;
 	margin-left: 10px;
 }
@@ -62,7 +65,6 @@ small { font-size: 12px; color: #ddd; }
 	overflow: hidden;
 	box-shadow: inset 0 0 5px #000;
 	display: block;
-	transition: all .2s ease;
 }
 
 .boximage img {
@@ -71,18 +73,58 @@ small { font-size: 12px; color: #ddd; }
 	box-shadow: 0 0 6px #000;
 }
 
+.buttons a {
+	display: block;
+	background: #ddd;
+	color: #111;
+	margin: 0 0 10px;
+	line-height: 20px;
+	font-size: 12px;
+	padding: 5px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 0 #fff, inset 0 3px 2px #ccc, inset 0 -10px 10px #999, 0 0 5px #000;
+}
+
+.buttons a:hover { background: #fff; }
+.buttons a:active {
+	background: #777;
+	box-shadow: inset 0 -5px 10px #999, 0 0 5px #000;
+}
+
 /* ---- header --- */
 
-header > * {
-	display: inline-block;
-	margin: 0 20px 0 0;
-	vertical-align: top;
+header {
+	position: relative;
+	min-height: 96px;
 }
+
+/* try to retain auto-width w/ pseudo float */
+header > div { margin: 0 120px 0 116px; }
 
 header p { margin: 0 0 5px; }
 header p a { margin: 0 20px 0 0; }
 
-header .boximage { display: inline-block; }
+header .boximage {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+h1 small {
+	vertical-align: bottom;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+header .buttons {
+	width: 100px;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 
 /* --- repos and table stuff --- */
 
@@ -106,7 +148,8 @@ table > *:first-child > tr:first-child > * { padding-top: 10px; }
 tr > td:first-child, tr > th:first-child { padding-left: 10px; }
 tr > td:last-child, tr > th:last-child { padding-right: 10px; }
 
-.repo tr:first-child > * {
+.repo tr:first-child > *,
+.gist tr:first-child > * {
 	border-top: 2px solid #1d1d1d; 
 	padding-top: 10px;
 }
